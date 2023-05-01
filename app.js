@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000/",
+    origin: "http://localhost:3000/" || "https://online-shop.onrender.com",
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -22,10 +22,13 @@ app.use(
 
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb://127.0.0.1:27017/shopOnline", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/shopOnline",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 app.use("/product", productRouter);
 app.use("/user", routerUser);
 app.use("/card", routerCard);
