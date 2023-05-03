@@ -17,6 +17,7 @@ module.exports = {
           name: req.body.name,
           email: req.body.email,
           password: pass,
+          isAdmin: false,
         });
         if (addUser)
           return res.status(200).json({ message: `Welcome ${addUser.name}!` });
