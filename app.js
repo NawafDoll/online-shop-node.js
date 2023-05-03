@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(
   cors({
     origin:
-      "http://localhost:3000/" || "http://online-shop-mbej-p9jt.onrender.com",
+      "http://localhost:3000/" || "https://online-shop-mbej.onrender.com/",
     methods: ["GET", "POST"],
     credentials: true,
   })
