@@ -26,9 +26,9 @@ try {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  process.exit(1);
 } catch (err) {
   console.log(err);
+  process.exit(1);
 }
 app.use("/product", productRouter);
 app.use("/user", routerUser);
