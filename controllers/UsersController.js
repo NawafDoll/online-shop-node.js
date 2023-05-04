@@ -59,9 +59,10 @@ module.exports = {
       token = token.split(" ")[1];
       const userAdmin = jwt.decode(token);
       if (!userAdmin.isAdmin) {
-        return res.status(404).json({ message: "You are not admin" });
+        res.status(404).json({ message: "You are not admin" });
+      } else {
+        next();
       }
-      next();
     } catch (err) {
       console.log(err);
     }
