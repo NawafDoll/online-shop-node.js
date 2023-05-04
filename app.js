@@ -4,6 +4,7 @@ const cors = require("cors");
 const session = require("express-session");
 const path = require("path");
 const sessionStore = require("connect-mongodb-session")(session);
+require("dotenv").config();
 
 const productRouter = require("./routes/ProductsRouter");
 const routerUser = require("./routes/UsersRouter");
@@ -35,4 +36,4 @@ app.use(express.static(path.join(__dirname, "../front-end/my-app/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../front-end/my-app/build/index.html"));
 });
-app.listen(process.env.PORT, () => console.log("Server Running on 3322"));
+app.listen(process.env.PORT, () => console.log("Server Running"));
