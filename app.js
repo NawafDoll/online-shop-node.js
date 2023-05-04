@@ -4,13 +4,13 @@ const cors = require("cors");
 const session = require("express-session");
 const path = require("path");
 const sessionStore = require("connect-mongodb-session")(session);
-require("dotenv").config();
+const dotenv = require("dotenv");
 
 const productRouter = require("./routes/ProductsRouter");
 const routerUser = require("./routes/UsersRouter");
 const routerCard = require("./routes/CardRouter");
 const routerOrder = require("./routes/OrderRouter");
-
+dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(
