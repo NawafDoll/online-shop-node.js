@@ -36,4 +36,4 @@ app.use(express.static(path.join(__dirname, "../front-end/my-app/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../front-end/my-app/build/index.html"));
 });
-app.listen(process.env.PORT, () => console.log("Server Running"));
+app.listen(process.env.PORT || 3322, () => console.log("Server Running"));
