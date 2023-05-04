@@ -21,15 +21,11 @@ app.use(
 );
 
 app.use(express.urlencoded({ extended: true }));
-try {
-  mongoose.connect(process.env.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-} catch (err) {
-  console.log(err);
-  // process.exit(1);
-}
+
+mongoose.connect(process.env.MONGODB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 app.use("/product", productRouter);
 app.use("/user", routerUser);
 app.use("/card", routerCard);
@@ -39,6 +35,4 @@ app.use(express.static(path.join(__dirname, "../front-end/my-app/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../front-end/my-app/build/index.html"));
 });
-app.listen(3322 || process.env.PORT, () =>
-  console.log("Server Running on 3322")
-);
+app.listen(process.env.PORT || 3322, () => console.log("Server Running"));
