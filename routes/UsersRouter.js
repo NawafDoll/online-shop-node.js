@@ -30,7 +30,7 @@ routerUser.post(
   },
   createUser
 );
-routerUser.get("/", userAdmin);
+routerUser.get("/", getUserOne);
 routerUser.post(
   "/login",
   async (req, res, next) => {
