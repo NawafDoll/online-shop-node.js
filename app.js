@@ -26,6 +26,7 @@ try {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
+  process.exit(1);
 } catch (err) {
   console.log(err);
 }
