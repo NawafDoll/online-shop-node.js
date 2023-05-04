@@ -22,11 +22,10 @@ routerUser.post(
           success: 0,
           message: value.error.details[0].message,
         });
-      } else {
-        next();
       }
     } catch (err) {
       console.log(err);
+      next();
     }
   },
   createUser
@@ -42,11 +41,10 @@ routerUser.post(
           success: 0,
           message: value.error.details[0].message,
         });
-      } else {
-        next();
       }
     } catch (err) {
       console.log(err);
+      next();
     }
   },
   login
@@ -63,11 +61,10 @@ routerUser.post(
           success: 0,
           message: value.error.details[0].message,
         });
-      } else {
-        next();
       }
     } catch (err) {
       console.log(err);
+      next();
     }
   },
   updatePassword
