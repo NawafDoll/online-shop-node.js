@@ -22,14 +22,17 @@ app.use(
 );
 
 app.use(express.urlencoded({ extended: true }));
-try {
-  mongoose.connect(process.env.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-} catch (err) {
-  console.log(err);
-}
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+connectDB();
 app.use("/product", productRouter);
 app.use("/user", routerUser);
 app.use("/card", routerCard);
