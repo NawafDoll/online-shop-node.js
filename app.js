@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: "https://online-shop-mbej.onrender.com",
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "DELETE"],
     credentials: true,
   })
 );
