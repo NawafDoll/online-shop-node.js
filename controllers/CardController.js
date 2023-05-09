@@ -29,11 +29,11 @@ module.exports = {
       let token = req.headers.authorization;
       token = token.split(" ")[1];
       const userId = jwt.decode(token);
+
       const allCards = await card.find({ userId: userId.id });
       if (allCards) {
-        return res
-          .status(200)
-          .json({ allCards: allCards, length: allCards.length });
+        let len = card.length;
+        return res.status(200).json({ allCards: allCards, length: len });
       } else {
         return res
           .status(400)
